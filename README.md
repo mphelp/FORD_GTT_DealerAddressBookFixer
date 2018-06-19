@@ -1,4 +1,4 @@
 # FORD_UKCityParsing - Matthew Phelps
-## City Parsing for UK Dealerships in Gloabl Track and Trace address book
+## Python Text mining the cities of UK Dealerships in Global Track & Trace Address Book
 
 ![picture of uk](img/uk.png)
