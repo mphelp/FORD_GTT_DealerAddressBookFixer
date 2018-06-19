@@ -9,7 +9,7 @@ badAddress = 0  # valid addresses
 goodAddress = 0  # invalid addresses
 addressCount = 4  # for debugging, 5 is first index of column
 debug = True  # examine invalid addresses
-
+cityListTextFile = 'GTNcityList.txt'
 
 # Primary Method Functions ===================================
 def remCommaPeriods(a):
@@ -90,16 +90,17 @@ def removeDup(potentialCities):
 
 def cityStringParse(results, addrElements):
     matches = []
+    followingWord = ''
     wordCount = len(addrElements)
-    for index, origWord in enumerate(addrElements):
-        if index < wordCount and index > 0:
+    for elementIndex, origWord in enumerate(addrElements):
+        if elementIndex < wordCount and elementIndex > 0:
             # Adjust for capitalization
             word = origWord.upper()[0] + origWord.lower()[1:]
-            if index < wordCount - 1:
-                followingWord = addrElements[index + 1].upper()[0] + addrElements[index + 1].lower()[1:]
+            if elementIndex < wordCount - 1:
+                followingWord = addrElements[elementIndex + 1].upper()[0] + addrElements[elementIndex + 1].lower()[1:]
             word = checkAbbr(word)
 
-            if index == len(addrElements) - 1 and len(word) > 2 and word in cityList:
+            if elementIndex == len(addrElements) - 1 and len(word) > 2 and word in cityList:
                 matches.append(word)
             elif len(word) > 2 and followingWord not in suffixes and word in cityList:
                 matches.append(word)
@@ -117,13 +118,13 @@ def cityStringParse(results, addrElements):
 
 # ----------------------------------------------------
 # Address Soruce, PostCode Map, City List and City Results
-addresses = [remCommaPeriods(s.rstrip()) for s in open('raw_addresses.txt', 'r')]
+addresses = [remCommaPeriods(s.rstrip()) for s in open('dependencies/raw_addresses.txt', 'r')]
 postCodeDistrictMap = {}
-for postcode in [pc.rstrip().split('\t') for pc in open('PostCodeMap.txt', 'r')]:
+for postcode in [pc.rstrip().split('\t') for pc in open('dependencies/PostCodeMap.txt', 'r')]:
     postCodeDistrictMap[postcode[1]] = postcode[2]
-cityList = [c.rstrip() for c in open('cityList.txt', 'r')]
+cityList = [c.rstrip() for c in open('dependencies/'+cityListTextFile, 'r')]
 results = open('results.txt', 'w')
-suffixes = [s.rstrip() for s in open('suffixes.txt', 'r')]
+suffixes = [s.rstrip() for s in open('dependencies/suffixes.txt', 'r')]
 
 # START ITERATING =======================================
 for addr in addresses:
