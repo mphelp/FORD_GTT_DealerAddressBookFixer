@@ -3,6 +3,7 @@
 ###         iTek Center, Red Wolves skill team
 ###         Ford Motor Company
 
+
 # Variables
 badAddress = 0  # valid addresses
 goodAddress = 0  # invalid addresses
@@ -17,21 +18,17 @@ def remCommaPeriods(a):
             a = a[:index] + ' ' + a[index + 1:]
     return a
 
-
 def writeNoCity(FILE):
     incrBadAddress()
     FILE.write('\n')
-
 
 def writeCityFromDistricts(FILE, districts):
     incrGoodAddress()
     FILE.write(postCodeDistrictMap[districts] + '\n')
 
-
 def writeCity(FILE, city):  # new function
     incrGoodAddress()
     FILE.write(city + '\n')
-
 
 def districtFound(distr):
     # returns tuple (matchFound, districts key string)
@@ -39,7 +36,6 @@ def districtFound(distr):
         if distr in districts:
             return True, districts
     return False, None
-
 
 def dispCityResults(goodAddress, badAddress):
     print('\nTotal: {}'.format(goodAddress + badAddress))
@@ -49,16 +45,13 @@ def dispCityResults(goodAddress, badAddress):
     print('All cities identified have been written to results.txt')
     print('All invalid addresses have a blank line instead')
 
-
 def incrGoodAddress():
     global goodAddress
     goodAddress = goodAddress + 1
 
-
 def incrBadAddress():
     global badAddress
     badAddress = badAddress + 1
-
 
 def debugPrint(key, addrElements, addressCount):
     if not debug:
@@ -85,18 +78,15 @@ abbrMap = {
     'Doncaste': 'Doncaster',
 }
 
-
 def checkAbbr(word):  # check list of exceptions/abbreviations
     if word in abbrMap:
         return abbrMap[word]
     return word
 
-
 def removeDup(potentialCities):
     seen = set()
     seen_add = seen.add
     return [x for x in potentialCities if not (x in seen or seen_add(x))]
-
 
 def cityStringParse(results, addrElements):
     matches = []
