@@ -12,11 +12,11 @@ debug = True  # examine invalid addresses
 cityListTextFile = 'GTNcityList.txt'
 
 # Primary Method Functions ===================================
-def remCommaPeriods(a):
-    for index, char in enumerate(a):
+def remCommaPeriods(addrString):
+    for index, char in enumerate(addrString):
         if char == ',' or char == '.':
-            a = a[:index] + ' ' + a[index + 1:]
-    return a
+            addrString = addrString[:index] + ' ' + addrString[index + 1:]
+    return addrString
 
 def writeNoCity(FILE):
     incrBadAddress()
@@ -181,6 +181,5 @@ for addr in addresses:
     writeNoCity(results)
     '''
 
-# print('\nAddressCount: {}'.format(addressCount))
 # Display at end
 dispCityResults(goodAddress, badAddress)
