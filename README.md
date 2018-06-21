@@ -1,4 +1,4 @@
-# FORD_UKCityParsing - Matthew Phelps
+# FORD_UKCityParsing - Matthew Phelps (June 2018)
 * Python Text mining UK Dealership cities from GTNextus
 
  ![ford logo](img/ford2.png) ![picture of uk](img/uk.png)
