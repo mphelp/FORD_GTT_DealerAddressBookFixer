@@ -44,12 +44,16 @@ for addr in addresses:
     # second to last element of four
     # second to last element of three
     for distr in potentialDistricts:
-        cityFound, city = postCodeLookup(distr, postCodeDistrictMap)
-        if cityFound and city.lower() in cityListLower:
+        foundCityFromPostCode, city = postCodeLookup(distr, postCodeDistrictMap)
+        if foundCityFromPostCode and city.lower() in cityListLower:
             debugPrint(DEBUG, distr, addrElements, addrInfo.currentAddrIndex)
             addrInfo.writeCity(city)
             break
-    if not cityFound:
+    if not foundCityFromPostCode:
+        foundCityFromAddrStr, city = cityStringParse()
+        if foundCityFromAddrStr:
+            debugPrint()
+            addrInfo.
         # check EVERY string in cityListLower whether or not it is in addr string
         #stringMatches = cityStringParse(addrElements, addrInfo.currentAddrIndex)
 
