@@ -3,101 +3,67 @@
 ###         iTek Center, Red Wolves skill team
 ###         Ford Motor Company
 
-from functions import *
+from postCodeUtil import *
+from addrStrUtil import *
 from addressInfo import addressInfo
 
 # Variables
-badAddress = 0  # valid addresses
-goodAddress = 0  # invalid addresses
-addressCount = 4  # for debugging, 5 is first index of column
-PRINTALL = False  # print all lines
-DEBUG = True # examine invalid addresses
-cityListTextFile = 'GTNcityList.txt'
-resultsFile = 'results.txt'
-hasOffset = True
+badAddress = 0      # valid addresses
+goodAddress = 0     # invalid addresses
+debug = True        # examine invalid addresses
+debugAll = False    # print all written lines
+cityListTextFile = 'dependencies/GTNcityList.txt'
+resultsFile = 'results.txt' # where cities are written to
+hasOffset = False   # excel row offset
 
 # ----------------------------------------------------
 # Address Soruce, PostCode Map, City List and City Results
-addresses = [remComma(s.rstrip()) for s in open('dependencies/raw_addresses.txt', 'r')]
+addresses = [remPunctuation(s.rstrip()) for s in open('dependencies/raw_addresses.txt', 'r')]
 postCodeDistrictMap = {}
 for postcode in [pc.rstrip().split('\t') for pc in open('dependencies/PostCodeMap.txt', 'r')]:
     postCodeDistrictMap[postcode[1]] = postcode[2]
-cityList = [c.rstrip() for c in open('dependencies/'+cityListTextFile, 'r')]
-cityListLower = [c.lower() for c in cityList]
+cityList = [c.rstrip() for c in open(cityListTextFile, 'r')]
+cityListSimplified = [remPunctuation(c.lower()) for c in cityList]
 suffixes = [s.rstrip() for s in open('dependencies/suffixes.txt', 'r')]
 
 
 # START ITERATING =======================================
-addrInfo = addressInfo(resultsFile=resultsFile,hasOffset=hasOffset)
+
+# Address Info object
+addrInfo = addressInfo(resultsFile=resultsFile, hasOffset=hasOffset, debug=debug, debugAll=debugAll)
 for addr in addresses:
+    # Setup
     addrInfo.incrCurrentIndex()
-    matchFound = False
     addrElements = addr.split()
+    foundCityFromAddrStr, foundCityFromPostCode = False, False
 
     # Address too short
     if len(addrElements) <= 3:
-        debugPrint(DEBUG, 'tooShort', addrElements, addrInfo.currentAddrIndex)
+        addrInfo.debugPrint(addrElements, distr='  ', key='tooShort')
         addrInfo.writeNoCity()
         continue
-
     potentialDistricts = [addrElements[-1][0:4],addrElements[-1][0:3],
                           addrElements[-2][0:4],addrElements[-2][0:3]]
 
-    # last element length of four distr = addrElements[-1][0:4]  # changed
-    # last element length of three
-    # second to last element of four
-    # second to last element of three
+    # Method 1: Iterate through post code districts in address
     for distr in potentialDistricts:
-        foundCityFromPostCode, city = postCodeLookup(distr, postCodeDistrictMap)
-        if foundCityFromPostCode and city.lower() in cityListLower:
-            debugPrint(DEBUG, distr, addrElements, addrInfo.currentAddrIndex)
-            addrInfo.writeCity(city)
+        foundCityFromPostCode, cityFromPC = postCodeLookup(distr, postCodeDistrictMap,
+                                                           cityList, cityListSimplified)
+        if foundCityFromPostCode:
+            addrInfo.debugPrint(addrElements, distr=distr, key=cityFromPC)
+            addrInfo.writeCity(cityFromPC)
             break
+    # Method 2: Iterate through the address string for city
     if not foundCityFromPostCode:
-        foundCityFromAddrStr, cityMatchesSet = cityStringParse(addrElements, addrInfo.currentAddrIndex, cityList, suffixes)
+        foundCityFromAddrStr, cityFromStr = cityStringParse(addr, cityList,
+                                                            cityListSimplified)
         if foundCityFromAddrStr:
-            print(cityMatchesSet,"Look below for check")
-            for match in cityMatchesSet:
-                if match in cityList:
-                    debugPrint(DEBUG, match, addrElements, addrInfo.currentAddrIndex)
-                    addrInfo.writeCity(match)
-                    break
+            addrInfo.debugPrint(addrElements, distr='  ', key=cityFromStr)
+            addrInfo.writeCity(cityFromStr)
         else:
-            debugPrint(DEBUG, 'noValidCity',addrElements, addrInfo.currentAddrIndex)
+            # No city found with either method
+            addrInfo.debugPrint(addrElements, distr='  ', key='noValidCity')
             addrInfo.writeNoCity()
 
 # Display at end
 addrInfo.dispCityResults()
-
-'''
-    matchFound, city = cityFound(distr,postCodeDistrictMap)
-    if matchFound:
-        debugPrint(DEBUG, 'last4', addrElements, addressCount)
-        # write city
-        continue
-    # Then try length of three
-    distr = addrElements[-1][0:3]  # changed
-    matchFound, city = cityFound(distr,postCodeDistrictMap)
-    if matchFound:
-        debugPrint(DEBUG, 'last3', addrElements, addressCount)
-        # write city
-        continue
-    # second to last element
-    if len(addrElements) > 1:
-        # second to last element length four
-        distr = addrElements[-2][0:4]  # changed
-        matchFound, districts = districtFound(distr,postCodeDistrictMap)
-        if matchFound:
-            debugPrint(DEBUG,'2tolast4', addrElements, addressCount)
-            writeCityFromDistricts(results, districts)
-            continue
-        # Try length of three
-        distr = addrElements[-2][0:3]  # changed
-        matchFound, districts = districtFound(distr,postCodeDistrictMap)
-        if matchFound:
-            debugPrint(DEBUG,'2tolast3', addrElements, addressCount)
-            writeCityFromDistricts(results, districts)
-            continue
-    # if all else fails (use old method)
-    cityStringParse(results, addrElements)
-    '''

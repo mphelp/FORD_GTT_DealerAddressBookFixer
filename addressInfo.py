@@ -4,17 +4,18 @@ class addressInfo:
         file specified, no parsing in this class"""
 
     # Constructor
-    def __init__(self,resultsFile='results.txt', hasOffset=True):
-        self.hasOffset = hasOffset
-        self.resultsFile = resultsFile
-        self.badAddress = 0
-        self.goodAddress = 0
+    def __init__(self,resultsFile='results.txt', hasOffset=True, debug=False, debugAll=False):
+        self.hasOffset = hasOffset          # excel offset
+        self.resultsFile = resultsFile      # city write file
+        self.badAddress = 0                 # count of bad address strings
+        self.goodAddress = 0                # count of good address strings
         if hasOffset:
             self.currentAddrIndex = 4
         else:
             self.currentAddrIndex = 0
-        self.resultsStream = open(resultsFile, 'w')
-
+        self.resultsStream = open(resultsFile, 'w') # write stream
+        self.debug = debug
+        self.debugAll = debugAll
 
     # Write no city to results file
     def writeNoCity(self):
@@ -30,11 +31,16 @@ class addressInfo:
     def incrCurrentIndex(self):
         self.currentAddrIndex = self.currentAddrIndex + 1
 
+    # a print function for debugging
+    def debugPrint(self, addrElements, distr='NO_District', key='NoKEY'):
+        if self.debugAll or (self.debug and key == 'noValidCity' or key == 'tooShort'):
+            print(self.currentAddrIndex, distr, key + '\t: ', " ".join(addrElements))
+
     # display resulting good and bad address counts
     def dispCityResults(self):
         print('\nTotal: {}'.format(self.goodAddress + self.badAddress))
         print('Good:  {}'.format(self.goodAddress))
         print('Bad:   {}'.format(self.badAddress))
-        print('Ratio: {}\n\n'.format(self.goodAddress / (self.goodAddress + self.badAddress)))
-        print('All cities identified have been written to results.txt')
+        print('Ratio: {}\n'.format(self.goodAddress / (self.goodAddress + self.badAddress)))
+        print(f'All cities identified have been written to {self.resultsFile}')
         print('All invalid addresses have a blank line instead')
