@@ -1,4 +1,4 @@
-### Author: Matthew Phelps, Updated: June 19 2018
+### Author: Matthew Phelps, Updated: June 22 2018
 ###         IT Application Development Intern
 ###         iTek Center, Red Wolves skill team
 ###         Ford Motor Company
@@ -10,7 +10,8 @@ from addressInfo import addressInfo
 badAddress = 0  # valid addresses
 goodAddress = 0  # invalid addresses
 addressCount = 4  # for debugging, 5 is first index of column
-DEBUG = True  # examine invalid addresses
+PRINTALL = False  # print all lines
+DEBUG = True # examine invalid addresses
 cityListTextFile = 'GTNcityList.txt'
 resultsFile = 'results.txt'
 hasOffset = True
@@ -32,13 +33,16 @@ for addr in addresses:
     addrInfo.incrCurrentIndex()
     matchFound = False
     addrElements = addr.split()
+
+    # Address too short
+    if len(addrElements) <= 3:
+        debugPrint(DEBUG, 'tooShort', addrElements, addrInfo.currentAddrIndex)
+        addrInfo.writeNoCity()
+        continue
+
     potentialDistricts = [addrElements[-1][0:4],addrElements[-1][0:3],
                           addrElements[-2][0:4],addrElements[-2][0:3]]
-    # Address too short
-    if len(addrElements) < 3:
-        addrInfo.writeNoCity()
-        debugPrint(DEBUG, 'tooShort', addrElements, addrInfo.currentAddrIndex)
-        continue
+
     # last element length of four distr = addrElements[-1][0:4]  # changed
     # last element length of three
     # second to last element of four
@@ -50,12 +54,17 @@ for addr in addresses:
             addrInfo.writeCity(city)
             break
     if not foundCityFromPostCode:
-        foundCityFromAddrStr, city = cityStringParse()
+        foundCityFromAddrStr, cityMatchesSet = cityStringParse(addrElements, addrInfo.currentAddrIndex, cityList, suffixes)
         if foundCityFromAddrStr:
-            debugPrint()
-            addrInfo.
-        # check EVERY string in cityListLower whether or not it is in addr string
-        #stringMatches = cityStringParse(addrElements, addrInfo.currentAddrIndex)
+            print(cityMatchesSet,"Look below for check")
+            for match in cityMatchesSet:
+                if match in cityList:
+                    debugPrint(DEBUG, match, addrElements, addrInfo.currentAddrIndex)
+                    addrInfo.writeCity(match)
+                    break
+        else:
+            debugPrint(DEBUG, 'noValidCity',addrElements, addrInfo.currentAddrIndex)
+            addrInfo.writeNoCity()
 
 # Display at end
 addrInfo.dispCityResults()

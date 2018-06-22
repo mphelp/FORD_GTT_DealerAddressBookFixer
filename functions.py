@@ -14,8 +14,8 @@ def postCodeLookup(distr,postCodeMap):
             return True, postCodeMap[districts]
     return False, None
 
-def debugPrint(debug, key, addrElements, currentAddrIndex):
-    if not debug:
+def debugPrint(DEBUG, key, addrElements, currentAddrIndex):
+    if not DEBUG:
         return
     print(currentAddrIndex, key + '\t: ', " ".join(addrElements))
     if key == 'noValidCity':
@@ -43,43 +43,33 @@ def checkAbbr(word):  # check list of exceptions/abbreviations
     if word in abbrMap:
         return abbrMap[word]
     return word
-
+'''
 def removeDup(potentialCities):
     seen = set()
     seen_add = seen.add
     return [x for x in potentialCities if not (x in seen or seen_add(x))]
-
-def cityStringParse(results, addrElements, currentAddrIndex, cityList, suffixes):
-    matches = []
+'''
+def cityStringParse(addrElements, currentAddrIndex, cityList, suffixes):
+    matchesSet = set()
     wordCount = len(addrElements)
     for elementIndex, origWord in enumerate(addrElements):
         followingWord = ''
-        #if elementIndex < wordCount and elementIndex > 0:
-            # Adjust for capitalization
+        # Adjust for capitalization and strange abbreviations/typos
         word = checkAbbr(properCapitalization(origWord))
         if elementIndex < wordCount - 1:
             followingWord = properCapitalization(addrElements[elementIndex + 1])
-            #followingWord = addrElements[elementIndex + 1].upper()[0] + addrElements[elementIndex + 1].lower()[1:]
         if elementIndex == len(addrElements) - 1 and len(word) > 2 and word in cityList:
-            matches.append(word)
-        elif len(word) > 2 and followingWord not in suffixes
-            '''
-            if elementIndex == len(addrElements) - 1 and len(word) > 2 and word in cityList:
-                matches.append(word)
-            elif len(word) > 2 and followingWord not in suffixes and word in cityList:
-                matches.append(word)
-            '''
+            matchesSet.add(word)
+        elif len(word) > 2 and followingWord not in suffixes and word in cityList:
+            matchesSet.add(word)
+
     # No City found, write whitespace
-    if len(matches) == 0:
-        debugPrint('noValidCity', addrElements, currentAddrIndex)
-        writeNoCity(results)
-        return
+    if len(matchesSet) == 0:
+        return False, None
+    else:
+        return True, matchesSet
 
-    # Remove Duplicates and write city
-    matches = removeDup(matches)
-    #writeCity(results, matches[-1])
-    return matches
-
+# New function:
 def properCapitalization(word):
     return word.upper()[0] + word.lower()[1:]
 
