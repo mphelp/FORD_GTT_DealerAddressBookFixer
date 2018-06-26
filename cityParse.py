@@ -1,23 +1,23 @@
-### Author: Matthew Phelps, Updated: June 22 2018
+### Author: Matthew Phelps, Updated: June 25 2018
 ###         IT Application Development Intern
 ###         iTek Center, Red Wolves skill team
 ###         Ford Motor Company
 
-from postCodeUtil import *
-from addrStrUtil import *
-from addressInfo import addressInfo
+from Lib.postCodeUtil import *
+from Lib.addrStrUtil import *
+from Lib.addressInfo import addressInfo
 
 # Variables
-badAddress = 0      # valid addresses
-goodAddress = 0     # invalid addresses
-debug = True        # examine invalid addresses
-debugAll = False    # print all written lines
+badAddress = 0  # valid addresses
+goodAddress = 0  # invalid addresses
+debug = True  # examine invalid addresses
+debugAll = False  # print all written lines
 cityListTextFile = 'dependencies/GTNcityList.txt'
-resultsFile = 'results.txt' # where cities are written to
-hasOffset = False   # excel row offset
+resultsFile = 'results.txt'  # where cities are written to
+hasOffset = False  # excel row offset
 
 # ----------------------------------------------------
-# Address Soruce, PostCode Map, City List and City Results
+# Address Source, PostCode Map, City List and City Results
 addresses = [remPunctuation(s.rstrip()) for s in open('dependencies/raw_addresses.txt', 'r')]
 postCodeDistrictMap = {}
 for postcode in [pc.rstrip().split('\t') for pc in open('dependencies/PostCodeMap.txt', 'r')]:
@@ -25,7 +25,6 @@ for postcode in [pc.rstrip().split('\t') for pc in open('dependencies/PostCodeMa
 cityList = [c.rstrip() for c in open(cityListTextFile, 'r')]
 cityListSimplified = [remPunctuation(c.lower()) for c in cityList]
 suffixes = [s.rstrip() for s in open('dependencies/suffixes.txt', 'r')]
-
 
 # START ITERATING =======================================
 
@@ -42,8 +41,8 @@ for addr in addresses:
         addrInfo.debugPrint(addrElements, distr='  ', key='tooShort')
         addrInfo.writeNoCity()
         continue
-    potentialDistricts = [addrElements[-1][0:4],addrElements[-1][0:3],
-                          addrElements[-2][0:4],addrElements[-2][0:3]]
+    potentialDistricts = [addrElements[-1][0:4], addrElements[-1][0:3],
+                          addrElements[-2][0:4], addrElements[-2][0:3]]
 
     # Method 1: Iterate through post code districts in address
     for distr in potentialDistricts:

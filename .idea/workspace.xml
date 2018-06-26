@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6831cc13-073d-409e-9e4a-a73fb6543112" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/addrStrUtil.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/postCodeUtil.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressInfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/addressInfo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cityParse.py" beforeDir="false" afterPath="$PROJECT_DIR$/cityParse.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependencies/cityList.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependencies/combinedCityData.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,18 +15,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/FORD_UKCityParsing$test.coverage" NAME="test Coverage Results" MODIFIED="1529686056189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FORD_UKCityParsing$cityParse.coverage" NAME="cityParse Coverage Results" MODIFIED="1530039433717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FORD_UKCityParsing$timeZoneTest.coverage" NAME="timeZoneTest Coverage Results" MODIFIED="1529871646623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FORD_UKCityParsing$test.coverage" NAME="test Coverage Results" MODIFIED="1529686373645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="cityParse.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cityParse.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-              <folding>
-                <element signature="e#175#198#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="162">
+              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -39,8 +33,17 @@
       <file leaf-file-name="postCodeUtil.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/postCodeUtil.py">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="results.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/results.txt">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+              <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -49,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/addrStrUtil.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -63,19 +66,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="results.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/results.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2434">
-              <caret line="322" column="9" lean-forward="true" selection-start-line="322" selection-start-column="9" selection-end-line="322" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GTNcityList.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dependencies/GTNcityList.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-243">
+            <state relative-caret-position="59346">
               <caret line="3297" column="7" selection-start-line="3297" selection-end-line="3297" selection-end-column="7" />
             </state>
           </provider>
@@ -84,8 +78,8 @@
       <file leaf-file-name="raw_addresses.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dependencies/raw_addresses.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="326" column="44" lean-forward="true" selection-start-line="326" selection-start-column="44" selection-end-line="326" selection-end-column="44" />
+            <state relative-caret-position="5868">
+              <caret line="326" column="44" selection-start-line="326" selection-start-column="44" selection-end-line="326" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -93,7 +87,7 @@
       <file leaf-file-name="PostCodeMap.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dependencies/PostCodeMap.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
+            <state relative-caret-position="12960">
               <caret line="720" column="36" selection-start-line="720" selection-start-column="36" selection-end-line="720" selection-end-column="36" />
             </state>
           </provider>
@@ -110,22 +104,20 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find />
-      <find>upper</find>
-      <find />
+      <find>Stone</find>
       <find>Stone</find>
       <find>Mobb</find>
       <find>st15</find>
       <find>Newcast</find>
-      <find />
-      <find />
+      <find>St Alb</find>
+      <find>Ellesmere P</find>
       <find>Stratford</find>
-      <find />
+      <find>St</find>
       <find>Stockton</find>
       <find>Neath</find>
       <find>Bangor</find>
       <find>Stirling</find>
-      <find />
+      <find>Stoke O</find>
       <find>capa</find>
       <find>debugPrint</find>
       <find>capi</find>
@@ -140,6 +132,8 @@
       <find>commaper</find>
       <find>Longton</find>
       <find>comm</find>
+      <find>lowercase</find>
+      <find>citylower</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,6 +150,7 @@
         <option value="$PROJECT_DIR$/addrStrUtil.py" />
         <option value="$PROJECT_DIR$/postCodeUtil.py" />
         <option value="$PROJECT_DIR$/addressInfo.py" />
+        <option value="$PROJECT_DIR$/timeZoneTest.py" />
         <option value="$PROJECT_DIR$/cityParse.py" />
       </list>
     </option>
@@ -169,17 +164,18 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-105" />
-    <option name="y" value="-25" />
-    <option name="width" value="1735" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1939" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -187,24 +183,18 @@
               <item name="FORD_UKCityParsing" type="b2602c69:ProjectViewProjectNode" />
               <item name="FORD_UKCityParsing" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="FORD_UKCityParsing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FORD_UKCityParsing" type="462c0819:PsiDirectoryNode" />
-              <item name="dependencies" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cityParse.py" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="http.proxy" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -224,7 +214,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="cityParse" type="PythonConfigurationType" factoryName="Python">
       <module name="FORD_UKCityParsing" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -237,7 +227,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\mphelp20\PycharmProjects\FORD_UKCityParsing\cityParse.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cityParse.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -258,17 +248,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Python Console" order="4" sideWeight="0.5033557" side_tool="true" weight="0.28107345" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.5033557" side_tool="true" visible="true" weight="0.28531075" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4966443" visible="true" weight="0.28531075" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2671141" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.5060403" side_tool="true" visible="true" weight="0.34757835" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49395972" visible="true" weight="0.34757835" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24496645" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -291,13 +280,52 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/addrStrUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addressInfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5796">
+          <caret line="322" column="9" lean-forward="true" selection-start-line="322" selection-start-column="9" selection-end-line="322" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/GTNcityList.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59346">
+          <caret line="3297" column="7" selection-start-line="3297" selection-end-line="3297" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/raw_addresses.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5868">
+          <caret line="326" column="44" lean-forward="true" selection-start-line="326" selection-start-column="44" selection-end-line="326" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/PostCodeMap.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12960">
+          <caret line="720" column="36" selection-start-line="720" selection-start-column="36" selection-end-line="720" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cityParse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
           <caret line="55" column="21" lean-forward="true" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
-          <folding>
-            <element signature="e#175#198#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -318,13 +346,7 @@
     <entry file="file://$PROJECT_DIR$/results.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/combinedCityData.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242172">
-          <caret line="13454" selection-start-line="13454" selection-end-line="13454" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/combinedCityData.txt" />
     <entry file="file://$PROJECT_DIR$/dependencies/GTNcityList.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -339,20 +361,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt" />
     <entry file="file://$PROJECT_DIR$/cityParse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="936">
           <caret line="52" column="81" selection-start-line="52" selection-start-column="81" selection-end-line="52" selection-end-column="81" />
-          <folding>
-            <element signature="e#175#198#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -373,13 +386,7 @@
     <entry file="file://$PROJECT_DIR$/results.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/combinedCityData.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242172">
-          <caret line="13454" selection-start-line="13454" selection-end-line="13454" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/combinedCityData.txt" />
     <entry file="file://$PROJECT_DIR$/dependencies/GTNcityList.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -394,20 +401,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt" />
     <entry file="file://$PROJECT_DIR$/cityParse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3204">
           <caret line="178" column="13" lean-forward="true" selection-start-line="178" selection-start-column="13" selection-end-line="178" selection-end-column="13" />
-          <folding>
-            <element signature="e#175#198#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -418,13 +416,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/combinedCityData.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242172">
-          <caret line="13454" selection-start-line="13454" selection-end-line="13454" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/combinedCityData.txt" />
     <entry file="file://$PROJECT_DIR$/dependencies/GTNcityList.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -435,13 +427,7 @@
     <entry file="file://$PROJECT_DIR$/dependencies/PostCodeMap.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt" />
     <entry file="file://$PROJECT_DIR$/cityParse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -456,13 +442,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/combinedCityData.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242172">
-          <caret line="13454" selection-start-line="13454" selection-end-line="13454" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/combinedCityData.txt" />
     <entry file="file://$PROJECT_DIR$/dependencies/GTNcityList.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -470,13 +450,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt" />
     <entry file="file://$PROJECT_DIR$/cityParse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -491,13 +465,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/combinedCityData.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242172">
-          <caret line="13454" selection-start-line="13454" selection-end-line="13454" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/combinedCityData.txt" />
     <entry file="file://$PROJECT_DIR$/dependencies/GTNcityList.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -505,52 +473,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt" />
+    <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt" />
     <entry file="file://$PROJECT_DIR$/dependencies/PostCodeMap.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
+        <state relative-caret-position="12960">
           <caret line="720" column="36" selection-start-line="720" selection-start-column="36" selection-end-line="720" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2434">
-          <caret line="322" column="9" lean-forward="true" selection-start-line="322" selection-start-column="9" selection-end-line="322" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dependencies/GTNcityList.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-243">
+        <state relative-caret-position="59346">
           <caret line="3297" column="7" selection-start-line="3297" selection-end-line="3297" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/combinedCityData.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="13454" selection-start-line="13454" selection-end-line="13454" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/combinedCityData.txt" />
     <entry file="file://$PROJECT_DIR$/dependencies/raw_addresses.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="326" column="44" lean-forward="true" selection-start-line="326" selection-start-column="44" selection-end-line="326" selection-end-column="44" />
+        <state relative-caret-position="5868">
+          <caret line="326" column="44" selection-start-line="326" selection-start-column="44" selection-end-line="326" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -567,24 +510,36 @@
     <entry file="file://$PROJECT_DIR$/addrStrUtil.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/postCodeUtil.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/timezonefinder/timezonefinder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/timeZoneTest.py" />
+    <entry file="file://$PROJECT_DIR$/results.txt">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cityParse.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-          <folding>
-            <element signature="e#175#198#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="162">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
         </state>
       </provider>
     </entry>
