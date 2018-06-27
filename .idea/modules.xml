@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/FORD_UKCityParsing.iml" filepath="$PROJECT_DIR$/.idea/FORD_UKCityParsing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/FORD_GlobalCityParsing.iml" filepath="$PROJECT_DIR$/.idea/FORD_GlobalCityParsing.iml" />
     </modules>
   </component>
 </project>
