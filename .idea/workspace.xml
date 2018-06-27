@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6831cc13-073d-409e-9e4a-a73fb6543112" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/FORD_UKCityParsing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FORD_GlobalCityParsing.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/addrStrUtil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/addressInfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/addrStats.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/postCodeUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/parse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cityParse.py" beforeDir="false" afterPath="$PROJECT_DIR$/cityParseUK.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,20 +22,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cityParse.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cityParse.py">
+      <file leaf-file-name="cityParseUK.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cityParseUK.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+            <state relative-caret-position="-252">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+              <folding>
+                <element signature="e#175#200#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="postCodeUtil.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Lib/postCodeUtil.py">
+      <file leaf-file-name="parse.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Lib/parse.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+            <state relative-caret-position="54">
+              <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -48,20 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addrStrUtil.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Lib/addrStrUtil.py">
+      <file leaf-file-name="addrStats.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Lib/addrStats.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addressInfo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Lib/addressInfo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+            <state relative-caret-position="90">
+              <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -151,8 +146,12 @@
         <option value="$PROJECT_DIR$/postCodeUtil.py" />
         <option value="$PROJECT_DIR$/addressInfo.py" />
         <option value="$PROJECT_DIR$/timeZoneTest.py" />
-        <option value="$PROJECT_DIR$/cityParse.py" />
         <option value="$PROJECT_DIR$/Lib/addressInfo.py" />
+        <option value="$PROJECT_DIR$/Lib/addrStats.py" />
+        <option value="$PROJECT_DIR$/Lib/addrStrUtil.py" />
+        <option value="$PROJECT_DIR$/Lib/postCodeUtil.py" />
+        <option value="$PROJECT_DIR$/Lib/parse.py" />
+        <option value="$PROJECT_DIR$/cityParse.py" />
       </list>
     </option>
   </component>
@@ -181,7 +180,12 @@
           <expand>
             <path>
               <item name="FORD_GlobalCityParsing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FORD_UKCityParsing" type="462c0819:PsiDirectoryNode" />
+              <item name="FORD_GlobalCityParsing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FORD_GlobalCityParsing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FORD_GlobalCityParsing" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -216,7 +220,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="cityParse" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="cityParseUK" type="PythonConfigurationType" factoryName="Python">
       <module name="FORD_GlobalCityParsing" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -229,7 +233,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cityParse.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cityParseUK.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -258,8 +262,8 @@
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Python Console" order="4" sideWeight="0.5033557" side_tool="true" weight="0.28107345" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.5060403" side_tool="true" weight="0.34757835" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49395972" visible="true" weight="0.28755364" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23624161" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49395972" visible="true" weight="0.36337626" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23624161" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -289,7 +293,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/addressInfo.py">
+    <entry file="file://$PROJECT_DIR$/Lib/addrStats.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
@@ -324,21 +328,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cityParse.py">
+    <entry file="file://$PROJECT_DIR$/cityParseUK.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
           <caret line="55" column="21" lean-forward="true" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/postCodeUtil.py">
+    <entry file="file://$PROJECT_DIR$/Lib/parse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/addressInfo.py">
+    <entry file="file://$PROJECT_DIR$/Lib/addrStats.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
@@ -364,21 +368,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt" />
-    <entry file="file://$PROJECT_DIR$/cityParse.py">
+    <entry file="file://$PROJECT_DIR$/cityParseUK.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="936">
           <caret line="52" column="81" selection-start-line="52" selection-start-column="81" selection-end-line="52" selection-end-column="81" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/postCodeUtil.py">
+    <entry file="file://$PROJECT_DIR$/Lib/parse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/addressInfo.py">
+    <entry file="file://$PROJECT_DIR$/Lib/addrStats.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
@@ -404,7 +408,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt" />
-    <entry file="file://$PROJECT_DIR$/cityParse.py">
+    <entry file="file://$PROJECT_DIR$/cityParseUK.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3204">
           <caret line="178" column="13" lean-forward="true" selection-start-line="178" selection-start-column="13" selection-end-line="178" selection-end-column="13" />
@@ -430,7 +434,7 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt" />
-    <entry file="file://$PROJECT_DIR$/cityParse.py">
+    <entry file="file://$PROJECT_DIR$/cityParseUK.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
@@ -453,7 +457,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dependencies/cityList.txt" />
-    <entry file="file://$PROJECT_DIR$/cityParse.py">
+    <entry file="file://$PROJECT_DIR$/cityParseUK.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
@@ -502,15 +506,15 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/postCodeUtil.py">
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/timezonefinder/timezonefinder.py" />
+    <entry file="file://$PROJECT_DIR$/timeZoneTest.py" />
+    <entry file="file://$PROJECT_DIR$/Lib/addrStrUtil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        <state relative-caret-position="54">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/timezonefinder/timezonefinder.py" />
-    <entry file="file://$PROJECT_DIR$/timeZoneTest.py" />
     <entry file="file://$PROJECT_DIR$/results.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -518,24 +522,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cityParse.py">
+    <entry file="file://$PROJECT_DIR$/Lib/parse.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+        <state relative-caret-position="54">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/addressInfo.py">
+    <entry file="file://$PROJECT_DIR$/Lib/addrStats.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        <state relative-caret-position="90">
+          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/addrStrUtil.py">
+    <entry file="file://$PROJECT_DIR$/cityParseUK.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        <state relative-caret-position="-252">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="e#175#200#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

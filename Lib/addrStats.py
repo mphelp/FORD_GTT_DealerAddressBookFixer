@@ -1,4 +1,4 @@
-class addressInfo:
+class addrStats:
     """A simple class detailing stats on the addresses read ===
         Keeps track of address info AND writes to the results
         file specified, no parsing in this class"""
