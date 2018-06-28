@@ -3,8 +3,7 @@
 ###         iTek Center, Red Wolves skill team
 ###         Ford Motor Company
 
-import Lib.parse as parse
-import Lib.addrStats as addrStats
+from Lib import parse, AddrStats
 
 # Variables
 badAddress = 0  # valid addresses
@@ -12,7 +11,7 @@ goodAddress = 0  # invalid addresses
 debug = True  # examine invalid addresses
 debugAll = False  # print all written lines
 cityListTextFile = 'dependencies/GTNcityList.txt'
-resultsFile = 'results.txt'  # where cities are written to
+resultsFile = 'resultsUK.txt'  # where cities are written to
 hasOffset = False  # excel row offset
 
 # ----------------------------------------------------
@@ -28,17 +27,17 @@ suffixes = [s.rstrip() for s in open('dependencies/suffixes.txt', 'r')]
 # START ITERATING =======================================
 
 # Address Info object
-addrInfoUK = addrStats.addrStats(resultsFile=resultsFile, hasOffset=hasOffset, debug=debug, debugAll=debugAll)
+AddrInfoUK = AddrStats.AddrStats(resultsFile=resultsFile, hasOffset=hasOffset, debug=debug, debugAll=debugAll)
 for addr in addresses:
     # Setup
-    addrInfoUK.incrCurrentIndex()
+    AddrInfoUK.incrCurrentIndex()
     addrElements = addr.split()
     foundCityFromAddrStr, foundCityFromPostCode = False, False
 
     # Address too short
     if len(addrElements) <= 3:
-        addrInfoUK.debugPrint(addrElements, distr='  ', key='tooShort')
-        addrInfoUK.writeNoCity()
+        AddrInfoUK.debugPrint(addrElements, distr='  ', key='tooShort')
+        AddrInfoUK.writeNoCity()
         continue
     potentialDistricts = [addrElements[-1][0:4], addrElements[-1][0:3],
                           addrElements[-2][0:4], addrElements[-2][0:3]]
@@ -48,20 +47,20 @@ for addr in addresses:
         foundCityFromPostCode, cityFromPC = parse.postCodeLookup(distr, postCodeDistrictMap,
                                                                  cityList, cityListSimplified)
         if foundCityFromPostCode:
-            addrInfoUK.debugPrint(addrElements, distr=distr, key=cityFromPC)
-            addrInfoUK.writeCity(cityFromPC)
+            AddrInfoUK.debugPrint(addrElements, distr=distr, key=cityFromPC)
+            AddrInfoUK.writeCity(cityFromPC)
             break
     # Method 2: Iterate through the address string for city
     if not foundCityFromPostCode:
         foundCityFromAddrStr, cityFromStr = parse.cityStringParse(addr, cityList,
                                                                   cityListSimplified)
         if foundCityFromAddrStr:
-            addrInfoUK.debugPrint(addrElements, distr='  ', key=cityFromStr)
-            addrInfoUK.writeCity(cityFromStr)
+            AddrInfoUK.debugPrint(addrElements, distr='  ', key=cityFromStr)
+            AddrInfoUK.writeCity(cityFromStr)
         else:
             # No city found with either method
-            addrInfoUK.debugPrint(addrElements, distr='  ', key='noValidCity')
-            addrInfoUK.writeNoCity()
+            AddrInfoUK.debugPrint(addrElements, distr='  ', key='noValidCity')
+            AddrInfoUK.writeNoCity()
 
 # Display at end
-addrInfoUK.dispCityResults()
+AddrInfoUK.dispCityResults()
