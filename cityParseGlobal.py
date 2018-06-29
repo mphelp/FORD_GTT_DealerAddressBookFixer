@@ -3,7 +3,7 @@
 ###         iTek Center, Red Wolves skill team
 ###         Ford Motor Company
 
-###### NOTES:
+######### NOTES:
 # Poland is an acceptable city.
 # Need a list of exceptions.
 
