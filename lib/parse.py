@@ -1,5 +1,4 @@
 # Primary and Secondary Method Functions + Maps ==================================================
-# (parse by postcode)
 
 def convertToStr(addr):
     if not isinstance(addr, str):
