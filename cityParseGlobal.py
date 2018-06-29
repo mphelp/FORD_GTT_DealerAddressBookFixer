@@ -18,13 +18,15 @@ globalResultsFile = 'resultsGlobal.txt'
 incompleteAddrExcel = 'dependencies/20180620 GTT Dealers with Incomplete address.xlsx'
 incompleteSheetName = 'Address Data city is inappropri'
 approvedGTNAddrExcel = 'dependencies/GTNexus_CityList_20180208.xlsx'
+debugAll = False
+hasOffSet = False
 
 # Source, I/O Read Write
 myTimer = Timer.Timer()
 myTimer.start('Excel Loading')
 incompleteAddrTable = pd.read_excel(pd.ExcelFile(incompleteAddrExcel), incompleteSheetName)
 approvedGTNAddrTable = pd.read_excel(approvedGTNAddrExcel)
-AddrInfoGlobal = AddrStats.AddrStats(resultsFile=globalResultsFile,debug=True)
+AddrInfoGlobal = AddrStats.AddrStats(resultsFile=globalResultsFile,debugAll=debugAll,hasOffset=hasOffSet)
 myTimer.end()
 
 # List Setup

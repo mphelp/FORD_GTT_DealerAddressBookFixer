@@ -1,0 +1,3 @@
+# Ignored directories and files #
+.idea/
+venv/

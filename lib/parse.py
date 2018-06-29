@@ -48,12 +48,12 @@ def checkAbbr(word):  # check list of exceptions/abbreviations
 def cityStringParse(addr, cityList, cityListSimplified):
     matchesList = []
     addrSimplified = remPunctuation(addr.lower())
-    #for index, citySimple in enumerate(cityListSimplified):
-        #if citySimple in addrSimplified:
-            #matchesList.append(cityList[index])
+    for index, citySimple in enumerate(cityListSimplified):
+        if citySimple in addrSimplified:
+            matchesList.append(cityList[index])
     # Alternative:
-    matchesList = [cityList[index] for index, citySimple in enumerate(cityListSimplified) if
-                   citySimple in addrSimplified]
+    #matchesList = [cityList[index] for index, citySimple in enumerate(cityListSimplified) if
+                   #citySimple in addrSimplified]
 
     if len(matchesList) == 0:
         return False, None

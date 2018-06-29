@@ -32,9 +32,12 @@ class AddrStats:
         self.currentAddrIndex = self.currentAddrIndex + 1
 
     # a print function for debugging
-    def debugPrint(self, addrElements, distr='NO_District', key='NoKEY'):
+    def debugPrint(self, addrElements, distr='NO_District', key='NoKEY',correctCity=''):
         if self.debugAll or (self.debug and key == 'noValidCity' or key == 'tooShort'):
-            print(self.currentAddrIndex, distr, key + '\t: ', " ".join(addrElements))
+            if isinstance(addrElements, list):
+                print(self.currentAddrIndex, distr, correctCity, key + '\t: ', " ".join(addrElements))
+            else:
+                print(self.currentAddrIndex, distr, key + '\t: ', correctCity, addrElements)
 
     # display resulting good and bad address counts
     def dispCityResults(self):
