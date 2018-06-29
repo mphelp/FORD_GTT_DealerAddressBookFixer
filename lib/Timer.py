@@ -1,6 +1,6 @@
 import time
 class Timer:
-    """Timer Class ========================="""
+    """Simple Timer class to record execution time of program processes"""
     # Create timer
     def __init__(self):
         self.section = ''

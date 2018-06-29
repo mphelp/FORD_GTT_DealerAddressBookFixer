@@ -1,5 +1,5 @@
 class AddrStats:
-    """A simple class detailing stats on the addresses read ===
+    """A simple class detailing stats on the read addresses ...
         Keeps track of address info AND writes to the results
         file specified, no parsing in this class"""
 
