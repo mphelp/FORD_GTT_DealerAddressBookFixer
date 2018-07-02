@@ -25,7 +25,7 @@ approvedGTNAddrExcel = 'dependencies/GTNexus_CityList_20180208.xlsx'
 
 
 # Begin iteration
-
+'''
 for possibleCity in incompleteAddrCityList:
     matchFound, correctCity = parse.cityStringParse(possibleCity, approvedGTNAddrCityList,
                                                     approvedGTNAddrCityListSimplified)
@@ -39,7 +39,7 @@ myTimer.end()
 
 # Display results
 AddrInfoGlobal.dispCityResults()
-
+'''
 ##### TO DO
 '''
 Classes:
