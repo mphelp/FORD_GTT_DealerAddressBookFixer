@@ -7,7 +7,8 @@
 # Poland is an acceptable city.
 # Need a list of exceptions.
 
-from lib import parse, AddrStats, Timer
+from myUtil import AddrStats, parse, Timer
+from myUtil import GTNAddressLookup, IncompleteGlobalDealerAddresses, CompleteGlobalDealerAddresses
 import pandas as pd
 import numpy as np
 import xlrd
@@ -19,9 +20,22 @@ import openpyxl
 incompleteAddrExcel = 'dependencies/20180620 GTT Dealers with Incomplete address.xlsx'
 incompleteSheetName = 'Address Data city is inappropri'
 approvedGTNAddrExcel = 'dependencies/GTNexus_CityList_20180208.xlsx'
+completeAddrExcel = 'CorrectedGlobalGTTDealerAddresses.xlsx'
 
-# Instantiate
+# Instantiate Incomplete/Complete
 
+incomplete = IncompleteGlobalDealerAddresses.IncompleteGlobalDealerAddresses(incompleteAddrExcel=incompleteAddrExcel,
+                                                                             incompleteSheetName=incompleteSheetName)
+incomplete.loadIncompleteAddrFields()
+complete = CompleteGlobalDealerAddresses.CompleteGlobalDealerAddresses(completeAddrExcel=completeAddrExcel)
+complete.copyIncompleteAddrDFasTemplate(incomplete.incompleteAddrDF)
+complete.addPostChangeDescriptorColumns()
+values = pd.Series([i for i in range(1582)])
+print([i for i in complete.completeAddrDF])
+
+print(f'New City Column: {complete.CityNewIndex}')
+
+# Instantiate Approved
 
 
 # Begin iteration
