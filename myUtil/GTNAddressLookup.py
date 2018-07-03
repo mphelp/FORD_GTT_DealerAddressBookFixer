@@ -10,18 +10,22 @@ class GTNAddressLookup:
     def loadGTNApprovedAddressesCitiesAndCountries(self):
         approvedAddressesDataFrame = pd.read_excel(pd.ExcelFile(self.approvedAddressesFile),
                                                    self.approvedSheetName)
+
         self.approvedCities = approvedAddressesDataFrame[['City']].values
         self.approvedCountries = approvedAddressesDataFrame[['Country Name']].values
         self.approvedCitiesSimple = [parse.remPunctuation(c[0].lower()) for c
                                      in self.approvedCities]
         self.approvedCountriesSimple = [parse.remPunctuation(c[0].lower()) for c
                                         in self.approvedCountries]
-        print(self.approvedCities[2])
-        print(self.approvedCitiesSimple[2])
-        print('Encamp is in approved cities : {}'.format('Encamp' in self.approvedCities))
-        print('encamp is in simple approved : {}'.format('encamp' in self.approvedCitiesSimple))
+
+
 
         # Quick tests ...
+
+        #print(self.approvedCities[2])
+        #print(self.approvedCitiesSimple[2])
+        #print('Encamp is in approved cities : {}'.format('Encamp' in self.approvedCities))
+        #print('encamp is in simple approved : {}'.format('encamp' in self.approvedCitiesSimple))
 
         #cityMatchesList = [self.approvedCities[index].item(0) for index, citySimple in
                            #enumerate(self.approvedCitiesSimple) if
