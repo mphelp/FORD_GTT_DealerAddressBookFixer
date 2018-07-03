@@ -1,6 +1,5 @@
 from myUtil import parse
 
-
 class AddressBook:
     def __init__(self, _approvedCities, _approvedCountries):
         self.approvedCities = _approvedCities

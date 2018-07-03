@@ -16,9 +16,9 @@ import numpy as np
 ## File configuration (edit the class to change file locations, names, or excel sheets)
 config = Configuration()
 
+
 ## Create Virtual GTN Address Book
-approvedAddressesDataFrame = \
-    pd.read_excel(pd.ExcelFile(config.approvedGTNAddrExcel), config.approvedGTNSheetName)
+approvedAddressesDataFrame = pd.read_excel(pd.ExcelFile(config.approvedGTNAddrExcel), config.approvedGTNSheetName)
 ai = AddressImporter()
 addressBook = ai.loadGTNApprovedAddressesCitiesAndCountries(approvedAddressesDataFrame)
 
@@ -35,16 +35,18 @@ myTimer.end()
 myTimer.start('Iteration and lookup')
 for index, addressData in complete.completeAddrDF.iterrows():
     lookup = GTNAddressLookup()
+
     thisAddr = Address(city=addressData.loc['City'],
                                countryName=addressData.loc['Country Name'],
                                add1=addressData.loc['Address 1'],
                                add2=addressData.loc['Address 2'],
                                postalCode=addressData.loc['Postal Code'])
+    '''
     # City
     for addressElement in [thisAddr.city, thisAddr.add1, thisAddr.add2]:
         cityFoundFromLookup = lookup.lookupCity(addressElement,addressBook)
         if cityFoundFromLookup:
             complete.completeAddrDF[index][['City']] = cityFoundFromLookup
             break
-
+    '''
 myTimer.end()
