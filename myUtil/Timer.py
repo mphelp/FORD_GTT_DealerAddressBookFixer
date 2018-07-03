@@ -6,9 +6,6 @@ class Timer:
         self.section = ''
         pass
     # Start timer
-    def start(self):
-        self.counter = time.clock()
-        self.section = ''
     def start(self, section):
         self.counter = time.clock()
         self.section = section

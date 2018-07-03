@@ -1,13 +1,15 @@
 import pandas as pd
 import numpy as np
 from myUtil import parse
+from myUtil.Configuration import Configuration
 
 class CompleteGlobalDealerAddresses:
-    def __init__(self, completeAddrExcel = 'Please specify file path'):
-        self.completeAddrExcel = completeAddrExcel
+    def __init__(self, config):
+        self.completeAddrExcel = config.completeAddrExcel
 
-    def copyIncompleteAddrDFasTemplate(self, incompleteDF):
+    def copyIncompleteAddrDFasTemplateAndAddColumns(self, incompleteDF):
         self.completeAddrDF = incompleteDF.copy(deep=True)
+        self.addPostChangeDescriptorColumns()
 
     def addPostChangeDescriptorColumns(self):
         emptyColumn = [np.nan for i in range(len(self.completeAddrDF))]
