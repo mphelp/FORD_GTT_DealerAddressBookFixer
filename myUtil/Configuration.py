@@ -1,3 +1,4 @@
+import pandas as pd
 class Configuration:
     def __init__(self):
         self.incompleteAddrExcel = 'dependencies/20180620 GTT Dealers with Incomplete address.xlsx'
@@ -5,3 +6,4 @@ class Configuration:
         self.approvedGTNAddrExcel = 'dependencies/GTNexus_CityList_20180208.xlsx'
         self.approvedGTNSheetName = 'Sheet1'
         self.completeAddrExcel = 'CorrectedGlobalGTTDealerAddresses.xlsx'
+        pd.options.mode.chained_assignment = None

@@ -12,7 +12,7 @@ class CompleteGlobalDealerAddresses:
         self.addPostChangeDescriptorColumns()
 
     def addPostChangeDescriptorColumns(self):
-        emptyColumn = [np.nan for i in range(len(self.completeAddrDF))]
+        emptyColumn = ['' for i in range(len(self.completeAddrDF))]
         self.CityNewIndex = self.completeAddrDF.columns.get_loc('City') + 1
         self.completeAddrDF.insert(loc=self.CityNewIndex, column='New City', value=emptyColumn)
         self.CityChangedIndex = self.completeAddrDF.columns.get_loc('New City') + 1

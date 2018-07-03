@@ -6,6 +6,8 @@ class GTNAddressLookup:
     # Lookup city default method: search for a match between
     # source address line string and entry in GTN approved city/country address book
     def lookupCity(self, addr, addressBook):
+        if not isinstance(addr, str):
+            return None
         addrSimplified = parse.remPunctuation(addr.lower())
         matchesList = [addressBook.approvedCities[index].item(0) for index, citySimple in
                        enumerate(addressBook.approvedCitiesSimple) if

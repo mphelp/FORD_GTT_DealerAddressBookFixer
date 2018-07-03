@@ -18,12 +18,14 @@ config = Configuration()
 
 
 ## Create Virtual GTN Address Book
+myTimer = Timer.Timer()
+myTimer.start('Create Virtual GTN Address Book')
 approvedAddressesDataFrame = pd.read_excel(pd.ExcelFile(config.approvedGTNAddrExcel), config.approvedGTNSheetName)
 ai = AddressImporter()
 addressBook = ai.loadGTNApprovedAddressesCitiesAndCountries(approvedAddressesDataFrame)
+myTimer.end()
 
 # (In)complete address lists setup
-myTimer = Timer.Timer()
 myTimer.start('Instantiate Incomplete/Complete and load, copy, and add new columns')
 incomplete = IncompleteGlobalDealerAddresses(config)
 complete = CompleteGlobalDealerAddresses(config)
@@ -32,6 +34,7 @@ myTimer.end()
 
 ## Begin iteration over address list
 
+dummyCounterTemp = 20
 myTimer.start('Iteration and lookup')
 for index, addressData in complete.completeAddrDF.iterrows():
     lookup = GTNAddressLookup()
@@ -41,12 +44,20 @@ for index, addressData in complete.completeAddrDF.iterrows():
                                add1=addressData.loc['Address 1'],
                                add2=addressData.loc['Address 2'],
                                postalCode=addressData.loc['Postal Code'])
-    '''
+
     # City
-    for addressElement in [thisAddr.city, thisAddr.add1, thisAddr.add2]:
+
+    for addressElement in [thisAddr.city]:
         cityFoundFromLookup = lookup.lookupCity(addressElement,addressBook)
         if cityFoundFromLookup:
-            complete.completeAddrDF[index][['City']] = cityFoundFromLookup
+
+            #complete.completeAddrDF.loc[index][['New City']].astype(str)
+            complete.completeAddrDF.loc[index][['New City']] = cityFoundFromLookup
+            complete.completeAddrDF.loc[index][['City Changed?']] = 'Yes'
+            #= cityFoundFromLookup
             break
-    '''
+    if dummyCounterTemp > 0:
+        dummyCounterTemp = dummyCounterTemp - 1
+    else:
+        break
 myTimer.end()
