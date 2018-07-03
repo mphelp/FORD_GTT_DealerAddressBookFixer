@@ -58,4 +58,3 @@ def cityStringParse(addr, cityList, cityListSimplified):
         return False, None
     else:
         return True, max(matchesList, key=len)
-

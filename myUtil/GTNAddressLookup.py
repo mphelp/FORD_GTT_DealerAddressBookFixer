@@ -1,24 +1,6 @@
-import pandas as pd
-import numpy as np
 from myUtil import parse
+
 class GTNAddressLookup:
-
-    def __init__(self, approvedAddressesFile='Please specify file path', approvedSheetName='Specify sheet'):
-        self.approvedAddressesFile=approvedAddressesFile
-        self.approvedSheetName = approvedSheetName
-
-    def loadGTNApprovedAddressesCitiesAndCountries(self):
-        approvedAddressesDataFrame = pd.read_excel(pd.ExcelFile(self.approvedAddressesFile),
-                                                   self.approvedSheetName)
-
-        self.approvedCities = approvedAddressesDataFrame[['City']].values
-        self.approvedCountries = approvedAddressesDataFrame[['Country Name']].values
-        self.approvedCitiesSimple = [parse.remPunctuation(c[0].lower()) for c
-                                     in self.approvedCities]
-        self.approvedCountriesSimple = [parse.remPunctuation(c[0].lower()) for c
-                                        in self.approvedCountries]
-
-
 
         # Quick tests ...
 
@@ -59,10 +41,10 @@ class GTNAddressLookup:
   #  self.approvedCitiesSimple = [parse.remPunctuation(city.lower()) for city in self.approvedCities]
       #  self.approvedCountriesSimple = [parse.remPunctuation(country.lower()) for country in self.approvedCountries]
 
-    def cityFoundViaLookup(self, addr):
+    def lookupCity(self, addr, addressBook):
         addrSimplified = parse.remPunctuation(addr.lower())
-        matchesList = [self.approvedCities[index].item(0) for index, citySimple in
-                       enumerate(self.approvedCitiesSimple) if
+        matchesList = [addressBook.approvedCities[index].item(0) for index, citySimple in
+                       enumerate(addressBook.approvedCitiesSimple) if
                        citySimple in addrSimplified and len(citySimple) >= 3]
         if len(matchesList) == 0:
             return None
