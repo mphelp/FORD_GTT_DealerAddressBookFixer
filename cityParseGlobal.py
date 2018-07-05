@@ -7,6 +7,7 @@ from myUtil.AddressImporter import AddressImporter
 from myUtil.Configuration import Configuration
 from myUtil.Address import Address
 from myUtil import Timer
+from myUtil.FormattedExcelWriter import FormattedExcelWriter
 from myUtil.GTNAddressLookup import GTNAddressLookup
 from myUtil.IncompleteGlobalDealerAddresses import IncompleteGlobalDealerAddresses
 from myUtil.CompleteGlobalDealerAddresses import CompleteGlobalDealerAddresses
@@ -46,15 +47,11 @@ for index, addressData in complete.completeAddrDF.iterrows():
                                postalCode=addressData.loc['Postal Code'])
 
     # City
-
     for addressElement in [thisAddr.city]:
         cityFoundFromLookup = lookup.lookupCity(addressElement,addressBook)
         if cityFoundFromLookup:
-
-            #complete.completeAddrDF.loc[index][['New City']].astype(str)
             complete.completeAddrDF.loc[index][['New City']] = cityFoundFromLookup
             complete.completeAddrDF.loc[index][['City Changed?']] = 'Yes'
-            #= cityFoundFromLookup
             break
     if dummyCounterTemp > 0:
         dummyCounterTemp = dummyCounterTemp - 1
@@ -63,3 +60,7 @@ for index, addressData in complete.completeAddrDF.iterrows():
 myTimer.end()
 
 ## Write to excel
+myTimer.start('Write to new excel file')
+ew = FormattedExcelWriter()
+ew.writeDFToExcelAndFormatProperly(complete.completeAddrDF, config)
+myTimer.end()
