@@ -61,3 +61,5 @@ for index, addressData in complete.completeAddrDF.iterrows():
     else:
         break
 myTimer.end()
+
+## Write to excel
