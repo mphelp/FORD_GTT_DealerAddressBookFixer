@@ -35,8 +35,6 @@ complete.copyIncompleteAddrDFasTemplateAndAddColumns(incomplete.incompleteAddrDF
 myTimer.end()
 
 ## Begin iteration over address list
-
-dummyCounterTemp = 2000
 myTimer.start('Iteration and lookup')
 for index, addressData in complete.completeAddrDF.iterrows():
     lookup = GTNAddressLookup()
@@ -59,12 +57,8 @@ for index, addressData in complete.completeAddrDF.iterrows():
             existingEntry = True
     realCities = [parse.convertToStr(c) for c in cities]
     if existingEntry:
-        complete.completeAddrDF.loc[index][['New City']] = ', '.join(realCities)
-        complete.completeAddrDF.loc[index][['City Changed?']] = 'Yes'
-    if dummyCounterTemp > 0:
-        dummyCounterTemp = dummyCounterTemp - 1
-    else:
-        break
+        complete.completeAddrDF.loc[index][[config.citySuggestionColumnTitle]] = ', '.join(realCities)
+        complete.completeAddrDF.loc[index][[config.cityIdentifiedColumnTitle]] = 'Yes'
 myTimer.end()
 
 ## Write to excel
