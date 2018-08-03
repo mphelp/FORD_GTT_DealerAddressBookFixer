@@ -23,7 +23,7 @@ class TestGTNAddressLookup(TestCase):
         l = GTNAddressLookup()
         actual = l.lookupCity("aev0.New.delphI.", addressBook)
         self.assertEqual("New Delphi", actual)
-
+    '''
     def test_lookupCityFromGTNActualData(self):
         config = Configuration()
         df = pd.read_excel(pd.ExcelFile(config.approvedGTNAddrExcel), config.approvedGTNSheetName)
@@ -31,4 +31,4 @@ class TestGTNAddressLookup(TestCase):
         addressBook = ai.loadGTNApprovedAddressesCitiesAndCountries(df)
         l = GTNAddressLookup()
         actual = l.lookupCity("090909BueNOS AIREs.", addressBook)
-        self.assertEqual("Buenos Aires", actual)
+        self.assertEqual("Buenos Aires", actual)'''

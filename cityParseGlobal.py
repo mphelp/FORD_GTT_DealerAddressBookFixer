@@ -12,6 +12,7 @@ from myUtil.GTNAddressLookup import GTNAddressLookup
 from myUtil.IncompleteGlobalDealerAddresses import IncompleteGlobalDealerAddresses
 from myUtil.CompleteGlobalDealerAddresses import CompleteGlobalDealerAddresses
 import pandas as pd
+from myUtil import parse
 import numpy as np
 
 ## File configuration (edit the class to change file locations, names, or excel sheets)
@@ -27,7 +28,7 @@ addressBook = ai.loadGTNApprovedAddressesCitiesAndCountries(approvedAddressesDat
 myTimer.end()
 
 # (In)complete address lists setup
-myTimer.start('Instantiate Incomplete/Complete and load, copy, and add new columns')
+myTimer.start('Load incomplete addresses from ' + config.incompleteAddrExcel)
 incomplete = IncompleteGlobalDealerAddresses(config)
 complete = CompleteGlobalDealerAddresses(config)
 complete.copyIncompleteAddrDFasTemplateAndAddColumns(incomplete.incompleteAddrDF)
@@ -35,7 +36,7 @@ myTimer.end()
 
 ## Begin iteration over address list
 
-dummyCounterTemp = 20
+dummyCounterTemp = 2000
 myTimer.start('Iteration and lookup')
 for index, addressData in complete.completeAddrDF.iterrows():
     lookup = GTNAddressLookup()
@@ -44,15 +45,22 @@ for index, addressData in complete.completeAddrDF.iterrows():
                                countryName=addressData.loc['Country Name'],
                                add1=addressData.loc['Address 1'],
                                add2=addressData.loc['Address 2'],
-                               postalCode=addressData.loc['Postal Code'])
+                               postalCode=addressData.loc['Postal Code'],
+                               locationName=addressData.loc['Location Name'])
 
     # City
-    for addressElement in [thisAddr.city]:
+    cities = []
+    for addressElement in [thisAddr.city, thisAddr.locationName, thisAddr.add1, thisAddr.add2]:
         cityFoundFromLookup = lookup.lookupCity(addressElement,addressBook)
-        if cityFoundFromLookup:
-            complete.completeAddrDF.loc[index][['New City']] = cityFoundFromLookup
-            complete.completeAddrDF.loc[index][['City Changed?']] = 'Yes'
-            break
+        cities.append(cityFoundFromLookup)
+    existingEntry = False
+    for word in cities:
+        if word:
+            existingEntry = True
+    realCities = [parse.convertToStr(c) for c in cities]
+    if existingEntry:
+        complete.completeAddrDF.loc[index][['New City']] = ', '.join(realCities)
+        complete.completeAddrDF.loc[index][['City Changed?']] = 'Yes'
     if dummyCounterTemp > 0:
         dummyCounterTemp = dummyCounterTemp - 1
     else:
@@ -60,7 +68,7 @@ for index, addressData in complete.completeAddrDF.iterrows():
 myTimer.end()
 
 ## Write to excel
-myTimer.start('Write to new excel file')
+myTimer.start('Write to new excel file ' + config.completeAddrExcel)
 ew = FormattedExcelWriter()
 ew.writeDFToExcelAndFormatProperly(complete.completeAddrDF, config)
 myTimer.end()

@@ -13,6 +13,6 @@ class GTNAddressLookup:
                        enumerate(addressBook.approvedCitiesSimple) if
                        citySimple in addrSimplified and len(citySimple) >= 3]
         if len(matchesList) == 0:
-            return None
+            return ''
         else:
             return max(matchesList, key=len)

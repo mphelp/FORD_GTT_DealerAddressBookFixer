@@ -5,9 +5,9 @@ import openpyxl
 
 # Vars
 globalResultsFile = 'resultsGlobal.txt'
-incompleteAddrExcel = 'dependencies/20180620 GTT Dealers with Incomplete address.xlsx'
+incompleteAddrExcel = '../dependencies/20180620 GTT Dealers with Incomplete address.xlsx'
 incompleteSheetName = 'Address Data city is inappropri'
-approvedGTNAddrExcel = 'dependencies/GTNexus_CityList_20180208.xlsx'
+approvedGTNAddrExcel = '../dependencies/GTNexus_CityList_20180208.xlsx'
 completedAddrExcel = 'CompleteAddresses.xlsx'
 
 # Read in excel
