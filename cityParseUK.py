@@ -3,7 +3,7 @@
 ###         iTek Center, Red Wolves skill team
 ###         Ford Motor Company
 
-from lib import parse, AddrStats
+from myUtil import parse, AddrStats
 
 # Variables
 badAddress = 0  # valid addresses

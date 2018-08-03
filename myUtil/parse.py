@@ -1,5 +1,4 @@
 # Primary and Secondary Method Functions + Maps ==================================================
-# (parse by postcode)
 
 def convertToStr(addr):
     if not isinstance(addr, str):
@@ -59,4 +58,3 @@ def cityStringParse(addr, cityList, cityListSimplified):
         return False, None
     else:
         return True, max(matchesList, key=len)
-

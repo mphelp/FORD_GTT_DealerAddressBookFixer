@@ -1,55 +1,68 @@
-### Author: Matthew Phelps, Updated: June 25 2018
+### Author: Matthew Phelps, Updated: July 2 2018
 ###         IT Application Development Intern
 ###         iTek Center, Red Wolves skill team
 ###         Ford Motor Company
 
-######### NOTES:
-# Poland is an acceptable city.
-# Need a list of exceptions.
-
-from lib import parse, AddrStats, Timer
+from myUtil.AddressImporter import AddressImporter
+from myUtil.Configuration import Configuration
+from myUtil.Address import Address
+from myUtil import Timer
+from myUtil.FormattedExcelWriter import FormattedExcelWriter
+from myUtil.GTNAddressLookup import GTNAddressLookup
+from myUtil.IncompleteGlobalDealerAddresses import IncompleteGlobalDealerAddresses
+from myUtil.CompleteGlobalDealerAddresses import CompleteGlobalDealerAddresses
 import pandas as pd
+from myUtil import parse
 import numpy as np
-import xlrd
-import time
 
-# Vars
-globalResultsFile = 'resultsGlobal.txt'
-incompleteAddrExcel = 'dependencies/20180620 GTT Dealers with Incomplete address.xlsx'
-incompleteSheetName = 'Address Data city is inappropri'
-approvedGTNAddrExcel = 'dependencies/GTNexus_CityList_20180208.xlsx'
-debugAll = False
-hasOffSet = False
+## File configuration (edit the class to change file locations, names, or excel sheets)
+config = Configuration()
 
-# Source, I/O Read Write
+
+## Create Virtual GTN Address Book
 myTimer = Timer.Timer()
-myTimer.start('Excel Loading')
-incompleteAddrTable = pd.read_excel(pd.ExcelFile(incompleteAddrExcel), incompleteSheetName)
-approvedGTNAddrTable = pd.read_excel(approvedGTNAddrExcel)
-AddrInfoGlobal = AddrStats.AddrStats(resultsFile=globalResultsFile,debugAll=debugAll,hasOffset=hasOffSet)
+myTimer.start('Create Virtual GTN Address Book')
+approvedAddressesDataFrame = pd.read_excel(pd.ExcelFile(config.approvedGTNAddrExcel), config.approvedGTNSheetName)
+ai = AddressImporter()
+addressBook = ai.loadGTNApprovedAddressesCitiesAndCountries(approvedAddressesDataFrame)
 myTimer.end()
 
-# List Setup
-myTimer.start('List Setup')
-incompleteAddrCityList = [parse.convertToStr(getattr(addr, 'City'))
-                          for addr in incompleteAddrTable[['City']].itertuples()]
-approvedGTNAddrCityList = [parse.convertToStr(getattr(addr, 'City'))
-                           for addr in approvedGTNAddrTable[['City']].itertuples()]
-approvedGTNAddrCityListSimplified = [parse.remPunctuation(c.lower()) for c in approvedGTNAddrCityList]
+# (In)complete address lists setup
+myTimer.start('Load incomplete addresses from ' + config.incompleteAddrExcel)
+incomplete = IncompleteGlobalDealerAddresses(config)
+complete = CompleteGlobalDealerAddresses(config)
+complete.copyIncompleteAddrDFasTemplateAndAddColumns(incomplete.incompleteAddrDF)
 myTimer.end()
 
-# Begin iteration
-myTimer.start('Iteration')
-for possibleCity in incompleteAddrCityList:
-    matchFound, correctCity = parse.cityStringParse(possibleCity, approvedGTNAddrCityList,
-                                                    approvedGTNAddrCityListSimplified)
-    if matchFound:
-        AddrInfoGlobal.writeCity(correctCity)
-        AddrInfoGlobal.debugPrint(possibleCity)
-    else:
-        AddrInfoGlobal.writeNoCity()
-        AddrInfoGlobal.debugPrint(possibleCity)
+## Begin iteration over address list
+myTimer.start('Iteration and lookup')
+for index, addressData in complete.completeAddrDF.iterrows():
+    lookup = GTNAddressLookup()
+
+    thisAddr = Address(city=addressData.loc['City'],
+                               countryName=addressData.loc['Country Name'],
+                               add1=addressData.loc['Address 1'],
+                               add2=addressData.loc['Address 2'],
+                               postalCode=addressData.loc['Postal Code'],
+                               locationName=addressData.loc['Location Name'])
+
+    # City
+    cities = []
+    for addressElement in [thisAddr.city, thisAddr.locationName, thisAddr.add1, thisAddr.add2]:
+        cityFoundFromLookup = lookup.lookupCity(addressElement,addressBook)
+        cities.append(cityFoundFromLookup)
+    existingEntry = False
+    for word in cities:
+        if word:
+            existingEntry = True
+    realCities = [parse.convertToStr(c) for c in cities]
+    if existingEntry:
+        complete.completeAddrDF.loc[index][[config.citySuggestionColumnTitle]] = ', '.join(realCities)
+        complete.completeAddrDF.loc[index][[config.cityIdentifiedColumnTitle]] = 'Yes'
 myTimer.end()
 
-# Display results
-AddrInfoGlobal.dispCityResults()
+## Write to excel
+myTimer.start('Write to new excel file ' + config.completeAddrExcel)
+ew = FormattedExcelWriter()
+ew.writeDFToExcelAndFormatProperly(complete.completeAddrDF, config)
+myTimer.end()
